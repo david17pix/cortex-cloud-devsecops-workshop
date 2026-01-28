@@ -6,6 +6,8 @@ terraform {
     }
   }
 }
+
+
 provider "google" {
   project = "{{{project_0.project_id}}}"
   region  = "us-central1"
