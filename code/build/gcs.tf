@@ -7,14 +7,9 @@ terraform {
   }
 }
 
-
 provider "google" {
-  project = "{{{project_0.project_id}}}"
+  project = "var.project_id"
   region  = "us-central1"
-}
-
-resource "random_id" "rand_suffix" {
-  byte_length = 4
 }
 
 resource "google_storage_bucket" "example" {
@@ -23,6 +18,10 @@ resource "google_storage_bucket" "example" {
   force_destroy = true
 
   uniform_bucket_level_access = false
+}
+
+resource "random_id" "rand_suffix" {
+  byte_length = 4
 }
 
 output "bucket_name" {
